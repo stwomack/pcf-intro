@@ -45,3 +45,7 @@ In order to perform the labs, you must be connected or logged into a live PCF en
   - [Lab 4 - Monitoring Applications](session_02/lab_04/lab_04.adoc)
 
 
+## Instructors
+- Chris Busch, Pivotal Platform Architect, cbusch@pivotal.io
+- Steve Womack, Pivotal Platform Architect, swomack@pivotal.io
+
