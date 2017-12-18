@@ -30,7 +30,7 @@ The first is available on any instance of Cloud Foundry: the `cf` CLI. Just type
 
 ----
 $ cf marketplace
-Getting services from marketplace in org pcf-intro / space dev as chris...
+Getting services from marketplace in org pcf-intro / space dev as instructor...
 OK
 
 service          plans      description
