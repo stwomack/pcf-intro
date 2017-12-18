@@ -1,8 +1,8 @@
 # Introduction to PCF
-Provides a half day of lecture and hands-on experience to familiar attendees with Pivotal Cloud Foundry, cloud-native, microservices, and interacting with PCF through the command line interface and web UI.
+Provides a half day of lecture and hands-on experience to familiarize attendees with cloud-native, microservices, Pivotal Cloud Foundry (PCF), and interacting with PCF through the command line interface (`cf`) and web UI (Apps Manager).
 
 
-## Agenda
+## Agenda (_roughly_)
 1. Intro to PCF (30 mins)
 2. Intro to Cloud Native (30 mins)
 3. PCF Architecture (60 mins)
@@ -32,7 +32,7 @@ $ cd pcf-intro/
 
 **PCF Environments**
 
-In order to perform the labs, you must be connected or logged into a live PCF environment. Initially you were asked to create a Pivotal Web Services (PWS) account for use in labs and afterwards. Two other environments have also been made available for use. Please see the [Pivotal Cloud Foundry Environment document](Common/env_info.md) for details. You should have been assigned a student number and PCF instance at registration. Otherwise the instructors will provide that information for your use.
+In order to perform the labs, you must be connected or logged into a live PCF environment. Initially you were asked to create a Pivotal Web Services (PWS) account for use in labs and afterwards. One other environment hazs also been made available for use. Please see the [Pivotal Cloud Foundry Environment document](Common/env_info.md) for details. You should have been assigned a student number and PCF instance at registration. Otherwise the instructors will provide that information for your use.
 
 ## Course Materials
 
@@ -44,8 +44,7 @@ In order to perform the labs, you must be connected or logged into a live PCF en
   - [Lab 3 - Scaling Applications](session_02/lab_03/lab_03.adoc)
   - [Lab 4 - Monitoring Applications](session_02/lab_04/lab_04.adoc)
 
-
-## Instructors
+## Pivotal team
 - Chris Busch, Pivotal Platform Architect, cbusch@pivotal.io
 - Steve Womack, Pivotal Platform Architect, swomack@pivotal.io
-
+- James Lyon, Pivotal Account Executive, jlyon@pivotal.io
