@@ -8,3 +8,7 @@ spring:
 management:
   security:
     enabled: false
+  cloudfoundry:
+    enabled: true
+    skip-ssl-validation: true
+
