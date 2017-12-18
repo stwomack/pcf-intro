@@ -29,12 +29,25 @@ Using the above information, your step to login are as follows below. When loggi
 $ cf login -a <endpoint> -u <user> --skip-ssl-validation
 ```
 
+For PWS, for instance, use the following with the appropriate user:
+```
+$ cf login -a api.run.pivotal.io -u student1 --skip-ssl-validation
+API endpoint: api.run.pivotal.io
+...
+```
+
 Or for GCP, use the student# you were assigned.
 
 ```
 $ cf login -a api.system.pcf-apps.net -u student1 --skip-ssl-validation
 API endpoint: api.system.pcf-apps.net
+...
+```
 
+With both of the above commands, PCF will request and authenticate your password then ask which `org` and `space` to target. If only one `org` and `space` exist, then the target will automatically be set for you.
+
+```
+...
 Password>
 Authenticating...
 OK
@@ -53,13 +66,6 @@ API endpoint:   https://api.system.pcf-apps.net (API version: 2.54.0)
 User:           student1
 Org:            student1-org
 Space:          development
-```
-
-So for PWS, use your email address from when you created your account.
-
-```
-$ cf login -a api.run.pivotal.io -u myname@email.com --skip-ssl-validation
-...
 ```
 
 ## Marketplace Information
