@@ -129,7 +129,7 @@ Effective management of logs has historically been very difficult.
 Cloud Foundry's https://github.com/cloudfoundry/loggregator[log aggregation] components simplify log management by assuming responsibility for it.
 Application developers need only log all messages to either `STDOUT` or `STDERR`, and the platform will capture these messages.
 
-=== For Developers
+=== For Developers - commandline
 
 Application developers can view application logs using the CF CLI.
 
@@ -178,7 +178,26 @@ $ cf logs cf-scale-boot
 +
 You can try various things like refreshing the browser and triggering stop/start events to see logs being generated. Stop `cf logs <app_name>` output by pressing Ctrl-C.
 
-=== For Operators (OPTIONAL)
+
+=== For Developers - PCF Metrics
+
+PCF provides for application metrics and log aggregation through an service call "PCF Metrics". This application performance monitoring tool will store up to two weeks of metrics and logs for every application running on the Pivotal Cloud Foundry instance. Developers do not have to enable its use, but can access its UI from the _Apps Manager_ UI.
+
+. From your browser, open either http://run.pivotal.io or, if using the PCF on GCP for the workshop, http://apps.sys.sierramadre.cf-app.com. Login with the appropriate account.
+
+. Using the "org" drop down list in the upper left of the Apps Manager UI, select the appropriate org.
+
+. The list of "spaces" within the selected org are now shown under the org name. Select the space with the cf-scale-boot app.
+
+. Select the `cf-scale-boot` app in the "Name" column, next to its status. This will display the "Overview" of Events, Scaling, and Instances of the app currently running.
+
+. To the right side of the "Instances" view - the list of app instances running - is the "View in PCF Metrics" link. Select that link to open the "PCF Metrics" UI.
+
+. From the "PCF Metrics" UI, explore the different Dashboard views and Logs. Note that the Logs view synchronizes with the location of the current marker location in each of the views. 
++
+image::../../Common/images/pcf-metrics-view.png[]
+
+=== For Operators - external app logs
 
 Application operators will also enjoy commands like `cf logs`, but are often interested in long-term retention, indexing, and analysis of logs as well.
 Cloud Foundry currently only provides short-term retention of logs.
