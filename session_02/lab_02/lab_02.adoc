@@ -30,6 +30,12 @@ The first is available on any instance of Cloud Foundry: the `cf` CLI. Just type
 
 ----
 $ cf marketplace
+Getting services from marketplace in org pcf-intro / space dev as chris...
+OK
+
+service          plans      description
+app-autoscaler   standard   Scales bound applications in response to load
+p-mysql          100mb      MySQL databases on demand
 ----
 
 and you'll get a list of services, their available plans, and descriptions.
