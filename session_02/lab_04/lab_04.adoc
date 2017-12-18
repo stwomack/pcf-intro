@@ -19,18 +19,21 @@ Take a look at the events that have transpired so far for our deployment of `cf-
 ====
 ----
 $ cf events cf-scale-boot
-Getting events for app cf-scale-boot in org oreilly-class / space instructor as cbusch@pivotal.io...
+Getting events for app cf-scale-boot in org pcf-intro / space dev as instructor...
 
-time                          event                 actor               description
-2015-02-13T15:18:33.00-0600   audit.app.update      cbusch@pivotal.io   instances: 1 <6>
-2015-02-13T15:04:34.00-0600   audit.app.update      cbusch@pivotal.io   instances: 5 <5>
-2015-02-13T12:56:35.00-0600   audit.app.update      cbusch@pivotal.io   state: STARTED <4>
-2015-02-13T12:56:26.00-0600   audit.app.update      cbusch@pivotal.io <3>
-2015-02-13T12:56:26.00-0600   audit.app.map-route   cbusch@pivotal.io <2>
-2015-02-13T12:56:24.00-0600   audit.app.create      cbusch@pivotal.io   instances: 1, memory: 512, state: STOPPED, environment_json: PRIVATE DATA HIDDEN <1>
+time                          event                      actor                   description
+2017-12-18T08:56:18.00-0600   audit.app.update           chriscbusch@gmail.com   instances: 1 <6>
+2017-12-18T08:49:04.00-0600   audit.app.update           chriscbusch@gmail.com   instances: 5 <5>
+2017-12-18T08:40:01.00-0600   audit.app.droplet.create   chriscbusch@gmail.com
+2017-12-18T08:39:39.00-0600   audit.app.update           chriscbusch@gmail.com   state: STARTED <4>
+2017-12-18T08:39:39.00-0600   audit.app.build.create     chriscbusch@gmail.com
+2017-12-18T08:39:34.00-0600   audit.app.upload-bits      chriscbusch@gmail.com
+2017-12-18T08:39:33.00-0600   audit.app.update           chriscbusch@gmail.com <3>
+2017-12-18T08:39:33.00-0600   audit.app.map-route        chriscbusch@gmail.com <2>
+2017-12-18T08:39:33.00-0600   audit.app.create           chriscbusch@gmail.com   instances: 1, memory: 768, state: STOPPED, environment_json: PRIVATE DATA HIDDEN <1>
 ----
 <1> Events are sorted newest to oldest, so we'll start from the bottom.
-Here we see the `app.create` event, which created our application's record and stored all of its metadata (e.g. `memory: 512`).
+Here we see the `app.create` event, which created our application's record and stored all of its metadata (e.g. `memory: 768`).
 <2> The `app.map-route` event records the incoming request to assign a route to our application.
 <3> This `app.update` event records the resulting change to our applications metadata.
 <4> This `app.update` event records the change of our application's state to `STARTED`.
@@ -42,7 +45,7 @@ Here we see the `app.create` event, which created our application's record and s
 +
 ----
 $ cf stop cf-scale-boot
-Stopping app cf-scale-boot in org oreilly-class / space instructor as cbusch@pivotal.io...
+Stopping app cf-scale-boot in org pcf-intro / space dev as cbusch@pivotal.io...
 OK
 ----
 
@@ -50,65 +53,73 @@ OK
 +
 ----
 $ cf events cf-scale-boot
-Getting events for app cf-scale-boot in org oreilly-class / space instructor as cbusch@pivotal.io...
+Getting events for app cf-scale-boot in org busch / space dev as chris...
 
-time                          event                 actor               description
-2015-02-13T15:59:10.00-0600   audit.app.update      cbusch@pivotal.io   state: STOPPED
-2015-02-13T15:18:33.00-0600   audit.app.update      cbusch@pivotal.io   instances: 1
-2015-02-13T15:04:34.00-0600   audit.app.update      cbusch@pivotal.io   instances: 5
-2015-02-13T12:56:35.00-0600   audit.app.update      cbusch@pivotal.io   state: STARTED
-2015-02-13T12:56:26.00-0600   audit.app.update      cbusch@pivotal.io
-2015-02-13T12:56:26.00-0600   audit.app.map-route   cbusch@pivotal.io
-2015-02-13T12:56:24.00-0600   audit.app.create      cbusch@pivotal.io   instances: 1, memory: 512, state: STOPPED, environment_json: PRIVATE DATA HIDDEN
+time                          event                      actor                   description
+2017-12-18T09:22:37.00-0600   audit.app.update           chriscbusch@gmail.com   state: STOPPED
+2017-12-18T08:56:18.00-0600   audit.app.update           chriscbusch@gmail.com   instances: 1
+2017-12-18T08:49:04.00-0600   audit.app.update           chriscbusch@gmail.com   instances: 5
+2017-12-18T08:40:01.00-0600   audit.app.droplet.create   chriscbusch@gmail.com
+2017-12-18T08:39:39.00-0600   audit.app.update           chriscbusch@gmail.com   state: STARTED
+2017-12-18T08:39:39.00-0600   audit.app.build.create     chriscbusch@gmail.com
+2017-12-18T08:39:34.00-0600   audit.app.upload-bits      chriscbusch@gmail.com
+2017-12-18T08:39:33.00-0600   audit.app.update           chriscbusch@gmail.com
+2017-12-18T08:39:33.00-0600   audit.app.map-route        chriscbusch@gmail.com
+2017-12-18T08:39:33.00-0600   audit.app.create           chriscbusch@gmail.com   instances: 1, memory: 768, state: STOPPED, environment_json: PRIVATE DATA HIDDEN
 ----
 
 . Start the application again:
 +
 ----
 $ cf start cf-scale-boot
-Starting app cf-scale-boot in org oreilly-class / space instructor as cbusch@pivotal.io...
+Starting app cf-scale-boot in org pcf-intro / space dev as instructor...
 
-0 of 1 instances running, 1 starting
-0 of 1 instances running, 1 starting
-0 of 1 instances running, 1 starting
-1 of 1 instances running
+Waiting for app to start...
 
+name:              cf-scale-boot
+requested state:   started
+instances:         1/1
+usage:             768M x 1 instances
+routes:            cf-scale-boot-flintlike-saltus.apps.mypcf.net
+last uploaded:     Mon 18 Dec 08:39:34 CST 2017
+stack:             cflinuxfs2
+buildpack:         client-certificate-mapper=1.2.0_RELEASE container-security-provider=1.8.0_RELEASE
+                   java-buildpack=v4.5-offline-https://github.com/cloudfoundry/java-buildpack.git#ffeefb9
+                   java-opts jvmkill-agent=1.10.0_RELEASE open-jdk-like-jre=1.8.0_141 open-jd...
+start command:     JAVA_OPTS="-agentpath:$PWD/.java-buildpack/open_jdk_jre/bin/jvmkill-1.10.0_RELEASE=printHeapHistogram=1
+                   -Djava.io.tmpdir=$TMPDIR
+                   -Djava.ext.dirs=$PWD/.java-buildpack/container_security_provider:$PWD/.java-buildpack/open_jdk_jre/lib/ext
+                   -Djava.security.properties=$PWD/.java-buildpack/security_providers/java.security $JAVA_OPTS" &&
+                   CALCULATED_MEMORY=$($PWD/.java-buildpack/open_jdk_jre/bin/java-buildpack-memory-calculator-3.9.0_RELEASE
+                   -totMemory=$MEMORY_LIMIT -stackThreads=300 -loadedClasses=9941 -poolType=metaspace
+                   -vmOptions="$JAVA_OPTS") && echo JVM Memory Configuration: $CALCULATED_MEMORY &&
+                   JAVA_OPTS="$JAVA_OPTS $CALCULATED_MEMORY" && JAVA_OPTS=$JAVA_OPTS SERVER_PORT=$PORT
+                   JAVA_HOME=$PWD/.java-buildpack/open_jdk_jre exec $PWD/.java-buildpack/spring_boot_cli/bin/spring run
+                   -cp $PWD/.java-buildpack/client_certificate_mapper/client_certificate_mapper-1.2.0_RELEASE.jar
+                   app.groovy
 
-App started
-
-
-OK
-
-App cf-scale-boot was started using this command `JAVA_HOME=$PWD/.java-buildpack/open_jdk_jre JAVA_OPTS="-Djava.io.tmpdir=$TMPDIR -XX:OnOutOfMemoryError=$PWD/.java-buildpack/open_jdk_jre/bin/killjava.sh -Xmx382293K -Xms382293K -XX:MaxMetaspaceSize=64M -XX:MetaspaceSize=64M -Xss995K" SERVER_PORT=$PORT $PWD/.java-buildpack/spring_boot_cli/bin/spring run app.groovy`
-
-Showing health and status for app cf-scale-boot in org oreilly-class / space instructor as cbusch@pivotal.io...
-OK
-
-requested state: started
-instances: 1/1
-usage: 512M x 1 instances
-urls: cf-scale-boot-stockinged-rust.cfapps.io
-last uploaded: Fri Feb 13 18:56:29 UTC 2015
-
-     state     since                    cpu    memory           disk
-#0   running   2015-02-13 04:01:50 PM   0.0%   389.1M of 512M   128.9M of 1G
+     state     since                  cpu      memory           disk         details
+#0   running   2017-12-18T15:24:20Z   163.9%   290.9M of 768M   156M of 1G
 ----
 
 . And again, view the additional `app.update` event:
 +
 ----
 $ cf events cf-scale-boot
-Getting events for app cf-scale-boot in org oreilly-class / space instructor as cbusch@pivotal.io...
+Getting events for app cf-scale-boot in org busch / space dev as chris...
 
-time                          event                 actor               description
-2015-02-13T16:01:28.00-0600   audit.app.update      cbusch@pivotal.io   state: STARTED
-2015-02-13T15:59:10.00-0600   audit.app.update      cbusch@pivotal.io   state: STOPPED
-2015-02-13T15:18:33.00-0600   audit.app.update      cbusch@pivotal.io   instances: 1
-2015-02-13T15:04:34.00-0600   audit.app.update      cbusch@pivotal.io   instances: 5
-2015-02-13T12:56:35.00-0600   audit.app.update      cbusch@pivotal.io   state: STARTED
-2015-02-13T12:56:26.00-0600   audit.app.update      cbusch@pivotal.io
-2015-02-13T12:56:26.00-0600   audit.app.map-route   cbusch@pivotal.io
-2015-02-13T12:56:24.00-0600   audit.app.create      cbusch@pivotal.io   instances: 1, memory: 512, state: STOPPED, environment_json: PRIVATE DATA HIDDEN
+time                          event                      actor                   description
+2017-12-18T09:23:49.00-0600   audit.app.update           chriscbusch@gmail.com   state: STARTED
+2017-12-18T09:22:37.00-0600   audit.app.update           chriscbusch@gmail.com   state: STOPPED
+2017-12-18T08:56:18.00-0600   audit.app.update           chriscbusch@gmail.com   instances: 1
+2017-12-18T08:49:04.00-0600   audit.app.update           chriscbusch@gmail.com   instances: 5
+2017-12-18T08:40:01.00-0600   audit.app.droplet.create   chriscbusch@gmail.com
+2017-12-18T08:39:39.00-0600   audit.app.update           chriscbusch@gmail.com   state: STARTED
+2017-12-18T08:39:39.00-0600   audit.app.build.create     chriscbusch@gmail.com
+2017-12-18T08:39:34.00-0600   audit.app.upload-bits      chriscbusch@gmail.com
+2017-12-18T08:39:33.00-0600   audit.app.update           chriscbusch@gmail.com
+2017-12-18T08:39:33.00-0600   audit.app.map-route        chriscbusch@gmail.com
+2017-12-18T08:39:33.00-0600   audit.app.create           chriscbusch@gmail.com   instances: 1, memory: 768, state: STOPPED, environment_json: PRIVATE DATA HIDDEN
 ----
 
 == Logs
@@ -197,7 +208,7 @@ image::../../Common/images/papertrail_4.png[]
 +
 ----
 $ cf cups cf-scale-boot-logs -l syslog://logs2.papertrailapp.com:43882
-Creating user provided service cf-scale-boot-logs in org oreilly-class / space instructor as cbusch@pivotal.io...
+Creating user provided service cf-scale-boot-logs in org pcf-intro / space dev as cbusch@pivotal.io...
 OK
 ----
 
@@ -205,7 +216,7 @@ OK
 +
 ----
 $ cf bs cf-scale-boot cf-scale-boot-logs
-Binding service cf-scale-boot-logs to app cf-scale-boot in org oreilly-class / space instructor as cbusch@pivotal.io...
+Binding service cf-scale-boot-logs to app cf-scale-boot in org pcf-intro / space dev as cbusch@pivotal.io...
 OK
 TIP: Use 'cf restage' to ensure your env variable changes take effect
 ----
@@ -265,7 +276,7 @@ Also, if you're paying attention to the log tail, you'll see some interesting lo
 +
 ----
 $ cf events cf-scale-boot
-Getting events for app cf-scale-boot in org oreilly-class / space instructor as cbusch@pivotal.io...
+Getting events for app cf-scale-boot in org pcf-intro / space dev as cbusch@pivotal.io...
 
 time                          event                 actor               description
 2015-02-13T17:17:57.00-0600   app.crash             cf-scale-boot       index: 0, reason: CRASHED, exit_description: app instance exited, exit_status: 1
@@ -303,7 +314,7 @@ Because of the limited quota we have for this course, let's clean up our applica
 $ cf d cf-scale-boot
 
 Really delete the app cf-scale-boot?> y
-Deleting app cf-scale-boot in org oreilly-class / space instructor as cbusch@pivotal.io...
+Deleting app cf-scale-boot in org pcf-intro / space dev as cbusch@pivotal.io...
 'OK
 ----
 
@@ -313,7 +324,7 @@ Deleting app cf-scale-boot in org oreilly-class / space instructor as cbusch@piv
 $ cf ds cf-scale-boot-logs
 
 Really delete the service cf-scale-boot-logs?> y
-Deleting service cf-scale-boot-logs in org oreilly-class / space instructor as cbusch@pivotal.io...
+Deleting service cf-scale-boot-logs in org pcf-intro / space dev as cbusch@pivotal.io...
 OK
 ----
 
