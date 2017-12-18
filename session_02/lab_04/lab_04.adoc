@@ -186,10 +186,16 @@ PCF provides for application metrics and log aggregation through an service call
 . From your browser, open either http://run.pivotal.io or, if using the PCF on GCP for the workshop, http://apps.sys.sierramadre.cf-app.com. Login with the appropriate account.
 
 . Using the "org" drop down list in the upper left of the Apps Manager UI, select the appropriate org.
++
+image::../../Common/images/appsman-1.png[]
 
 . The list of "spaces" within the selected org are now shown under the org name. Select the space with the cf-scale-boot app.
++
+image::../../Common/images/appsman-2.png[]
 
 . Select the `cf-scale-boot` app in the "Name" column, next to its status. This will display the "Overview" of Events, Scaling, and Instances of the app currently running.
++
+image::../../Common/images/appsman-3.png[]
 
 . To the right side of the "Instances" view - the list of app instances running - is the "View in PCF Metrics" link. Select that link to open the "PCF Metrics" UI.
 
