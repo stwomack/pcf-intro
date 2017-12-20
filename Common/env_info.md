@@ -18,7 +18,7 @@ Use the following information to connect (login) to specific environments as dir
 ### Pivotal Google Cloud Platform
 - Website: https://apps.sys.sierramadre.cf-app.com
 - Endpoint: api.sys.sierramadre.cf-app.com
-- Username: Assigned by instructor --> `student1` through `student4`
+- Username: Assigned by instructor --> `user1` through `user4`
 - Password: Assigned by instructor
 - Use [GCP Marketplace services](#gcp-marketplace-services-and-plans) below
 
@@ -31,15 +31,15 @@ $ cf login -a <endpoint> -u <user> --skip-ssl-validation
 
 For PWS, for instance, use the following with the appropriate user:
 ```
-$ cf login -a api.run.pivotal.io -u student1 --skip-ssl-validation
+$ cf login -a api.run.pivotal.io -u user1 --skip-ssl-validation
 API endpoint: api.run.pivotal.io
 ...
 ```
 
-Or for GCP, use the student# you were assigned.
+Or for GCP, use the user# you were assigned.
 
 ```
-$ cf login -a api.sys.sierramadre.cf-app.com -u student1 --skip-ssl-validation
+$ cf login -a api.sys.sierramadre.cf-app.com -u user1 --skip-ssl-validation
 API endpoint: api.sys.sierramadre.cf-app.com
 ...
 ```
@@ -52,7 +52,7 @@ Password>
 Authenticating...
 OK
 
-Targeted org student1-org
+Targeted org user1-org
 
 Select a space (or press enter to skip):
 1. development
@@ -63,8 +63,8 @@ Space> 1
 Targeted space development
 
 API endpoint:   https://api.sys.sierramadre.cf-app.com (API version: 2.54.0)
-User:           student1
-Org:            student1-org
+User:           user1
+Org:            user1-org
 Space:          development
 ```
 
