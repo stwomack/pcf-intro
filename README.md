@@ -26,7 +26,7 @@ Start by downloading and installing the appropriate prerequisite tools.
 Next, download the course materials.  This can be accomplished either through the GitHub website by downloading a repository zip and unzipping locally, or if you have Git installed, use the following commands:
 
 ```
-$ git clone https://github.com/cbusch-pivotal/pcf-intro
+$ git clone https://github.com/stwomack/pcf-intro
 $ cd pcf-intro/
 ```
 
@@ -45,6 +45,4 @@ In order to perform the labs, you must be connected or logged into a live PCF en
   - [Lab 4 - Monitoring Applications](session_02/lab_04/lab_04.adoc)
 
 ## Pivotal team
-- Chris Busch, Pivotal Platform Architect, cbusch@pivotal.io
 - Steve Womack, Pivotal Platform Architect, swomack@pivotal.io
-- James Lyon, Pivotal Account Executive, jlyon@pivotal.io
