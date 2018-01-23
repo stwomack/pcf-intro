@@ -3,11 +3,11 @@ Provides a half day of lecture and hands-on experience to familiarize attendees 
 
 
 ## Agenda (_roughly_)
-1. Intro to PCF (30 mins)
-2. Intro to Cloud Native (30 mins)
-3. PCF Architecture (60 mins)
-4. Hands On Workshop (1.5 hours)
-
+1. Intro to Cloud Native (30 mins)
+2. PCF Architecture (30 mins)
+3. Hands On Workshop (1.5 hours)
+4. Solace on PCF Demo (1 hour)
+5. Platform Dojo Scoping (3 hours)
 
 ## Getting started
 
