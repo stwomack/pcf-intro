@@ -16,8 +16,8 @@ Use the following information to connect (login) to specific environments as dir
 - Use [PWS Marketplace services](#pws-marketplace-services-and-plans) below
 
 ### Pivotal Google Cloud Platform
-- Website: https://apps.sys.sierramadre.cf-app.com
-- Endpoint: api.sys.sierramadre.cf-app.com
+- Website: https://apps.sys.calistoga.cf-app.com
+- Endpoint: api.sys.calistoga.cf-app.com
 - Username: Assigned by instructor --> `user1` through `user4`
 - Password: Assigned by instructor
 - Use [GCP Marketplace services](#gcp-marketplace-services-and-plans) below
@@ -39,8 +39,8 @@ API endpoint: api.run.pivotal.io
 Or for GCP, use the user# you were assigned.
 
 ```
-$ cf login -a api.sys.sierramadre.cf-app.com -u user1 --skip-ssl-validation
-API endpoint: api.sys.sierramadre.cf-app.com
+$ cf login -a api.sys.calistoga.cf-app.com -u user1 --skip-ssl-validation
+API endpoint: api.sys.calistoga.cf-app.com
 ...
 ```
 
@@ -62,7 +62,7 @@ Select a space (or press enter to skip):
 Space> 1
 Targeted space development
 
-API endpoint:   https://api.sys.sierramadre.cf-app.com (API version: 2.54.0)
+API endpoint:   https://api.sys.calistoga.cf-app.com (API version: 2.54.0)
 User:           user1
 Org:            user1-org
 Space:          development
